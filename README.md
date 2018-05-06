@@ -9,7 +9,7 @@ Please cite our work if you find these resources helpful.
         title = {Partial Multi-view Outlier Detection Based on Collective Learning},
         booktitle = {Proc. AAAI Conf. Artificial Intell. (AAAI)},  
         address = {New Orleans, Louisiana},  
-        pages = {P1-P8},  
+        pages = {298-305},  
         month = {Feb.},
         year = {2018}
     }
