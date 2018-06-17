@@ -4,7 +4,7 @@ function [Xpaired,Ypaired,Xsingle,Ysingle,assign] = gePartialData(View1Fea,View2
 % Input:
 %       View1Fea    -each row is a sample in View1
 %       View2Fea    -each row is a sample in View2
-%		pairPortion	-a scalar in (0,1) = 1-POR
+%       pairPortion	-a scalar in (0,1) = 1-POR
 % Output:
 %       Xpaired     -View1's samples that have View2
 %       Ypaired     -View2's samples that have View1
