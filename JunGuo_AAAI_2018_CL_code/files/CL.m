@@ -1,5 +1,5 @@
 function [Xnew, Ynew, K_x_new, K_y_new] = CL(X, Y, a, b, c, type, Score)
-%% max_X,Y  tr(HXX'HYY') s.t. some rows of X and Y are given
+%% max_X,Y  tr[(HXX'HYY').*C] s.t. some rows of X and Y are given
 %% Input:
 % Incomplete data X and Y, each row represents a sample
 %
@@ -20,7 +20,7 @@ function [Xnew, Ynew, K_x_new, K_y_new] = CL(X, Y, a, b, c, type, Score)
 %    'linear':   fill missing data with linear combination of neighbors.
 %    'simWeigh': fill missing data with the similarity-weighted neighbors.
 %
-% Score: a vector whose length is n. 
+% Score: a vector whose length is n. Note that C = Score*Score'
 %       (the smaller, the more likely it is that the sample is an outlier)
 %
 %% Output:
@@ -80,6 +80,7 @@ L_y = 0.5 * (L_y + L_y');
 
 K_x_prev = zeros(size(K_x));
 K_y_prev = zeros(size(K_y));
+
 
 %% Third, iteration for completion
 count_ = 0;
