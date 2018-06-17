@@ -4,7 +4,7 @@ function [W, L] = getS(data,k,num)
 % Input:
 %       data    -each column is a sample
 %       k       -number of neighbors
-%       num		-'0-1' weight when num==1; (default)
+%       num     -'0-1' weight when num==1; (default)
 %                Gaussian weight, otherwise.
 % Output:
 %       W       -weighting matrix
