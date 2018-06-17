@@ -20,7 +20,7 @@ function [Xnew, Ynew, K_x_new, K_y_new] = CL(X, Y, a, b, c, type, Score)
 %    'linear':   fill missing data with linear combination of neighbors.
 %    'simWeigh': fill missing data with the similarity-weighted neighbors.
 %
-% Score: a vector whose length is n. Note that C = Score*Score'
+% Score: a vector whose length is n. Note that C = Score*Score'.
 %       (the smaller, the more likely it is that the sample is an outlier)
 %
 %% Output:
@@ -88,16 +88,16 @@ while ( (max(max(abs(K_x_prev-K_x)))>1e-7 || max(max(abs(K_y_prev-K_y)))>1e-7) &
     K_x_prev = K_x;
     K_y_prev = K_y;
 
-	L_x_cb = L_x(1:c, c+a+1:c+a+b);
+    L_x_cb = L_x(1:c, c+a+1:c+a+b);
     L_x_ab = L_x(c+1:c+a, c+a+1:c+a+b);
     L_x_bb = L_x(c+a+1:c+a+b, c+a+1:c+a+b);
 	
     A_b = -(L_x_bb)\(L_x_cb')*A_c - (L_x_bb)\(L_x_ab')*A_a;
     A_b = (normcols((diag(1./score(c+a+1:c+a+b))*A_b)'))'; % each sample is normalized to unit l2-norm
     A(c+a+1:c+a+b,:) = diag(score(c+a+1:c+a+b)) * A_b;
-	K_y = A * A';
-	L_y = H * K_y * H;
-	L_y = 0.5 * (L_y + L_y');
+    K_y = A * A';
+    L_y = H * K_y * H;
+    L_y = 0.5 * (L_y + L_y');
 
     L_y_ca = L_y(1:c, c+1:c+a);
     L_y_aa = L_y(c+1:c+a, c+1:c+a);
@@ -108,8 +108,8 @@ while ( (max(max(abs(K_x_prev-K_x)))>1e-7 || max(max(abs(K_y_prev-K_y)))>1e-7) &
     B(c+1:c+a,:) = diag(score(c+1:c+a)) * B_a;
 	
     K_x = B * B';
-	L_x = H * K_x * H;
-	L_x = 0.5 * (L_x + L_x');
+    L_x = H * K_x * H;
+    L_x = 0.5 * (L_x + L_x');
     
     if mod(count_, 20) == 1
         fprintf('count_ is %d\n', count_);
