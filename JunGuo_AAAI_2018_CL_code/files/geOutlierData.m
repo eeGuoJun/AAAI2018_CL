@@ -4,8 +4,8 @@ function [outXpaired,outXsingle,outlierInd] = geOutlierData(Xpaired,Xsingle,nOut
 % Input: (For 'Xpaired' and 'Xsingle', each row is a sample.)
 %       Xpaired     -View1's samples that have View2 
 %       Xsingle     -View1's samples that do not have View2
-%		nOutlier    -the number of outliers
-%		label       -a nSmp*1 label vector
+%       nOutlier    -the number of outliers
+%       label       -a nSmp*1 label vector
 % Output:
 %       outXpaired  -View1's samples that have View2
 %       outXsingle  -View1's samples that do not have View2
