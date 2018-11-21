@@ -18,11 +18,11 @@ function [Xnew, Ynew, consistency] = CollectiveLearning(X,Y,para)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Note that: 
 %     X(1:c,:)       is given
-% X = X(c+1:c+a,:)   is missing, we need to solve
-%     X(c+a+1:end,:) is given (there are b rows).
+% X = X(c+1:c+a,:)   is missing (all-zero), we need to solve
+%     X(c+a+1:end,:) is given (there are b rows)
 %     Y(1:c,:)       is given
 % Y = Y(c+1:c+a,:)   is given
-%     Y(c+a+1:end,:) is missing, we need to solve (there are b rows).
+%     Y(c+a+1:end,:) is missing (all-zero), we need to solve (b rows)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% settings
